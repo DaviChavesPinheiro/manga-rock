@@ -21,7 +21,7 @@ class TabsScreen extends StatelessWidget {
           ],
           bottom: TabBar(
             labelColor: Theme.of(context).accentColor,
-            unselectedLabelColor: Colors.grey,
+            unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
             labelStyle: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             tabs: [
               Container(
@@ -47,6 +47,59 @@ class TabsScreen extends StatelessWidget {
             ForYouScreen(),
             AllScreen(),
             LatestScreen(),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Theme.of(context).primaryColor,
+          selectedItemColor: Theme.of(context).accentColor,
+          unselectedItemColor: Colors.grey[600],
+          iconSize: 21,
+          selectedFontSize: 10,
+          unselectedFontSize: 10,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              title: Container(
+                height: 18,
+                alignment: Alignment.bottomCenter,
+                child: Text('DISCOVER'),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              title: Container(
+                height: 18,
+                alignment: Alignment.bottomCenter,
+                child: Text('FAVORITES'),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.access_time),
+              title: Container(
+                height: 18,
+                alignment: Alignment.bottomCenter,
+                child: Text('RECENT'),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.file_download),
+              title: Container(
+                height: 18,
+                alignment: Alignment.bottomCenter,
+                child: Text('DOWNLOADS'),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz),
+              title: Container(
+                height: 18,
+                alignment: Alignment.bottomCenter,
+                child: Text('MORE'),
+              ),
+            ),
           ],
         ),
       ),
