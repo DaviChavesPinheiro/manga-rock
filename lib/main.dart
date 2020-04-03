@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manga_rock/screens/forYou_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,15 +32,7 @@ class MyApp extends StatelessWidget {
             "MangaRock",
           ),
         ),
-        body: Center(
-          child: Text(
-            'Home',
-            // style: TextStyle(
-            //   fontSize: Theme.of(context).textTheme.headline.fontSize,
-            //   color: Colors.white
-            // ),
-          ),
-        ),
+        body: ForYouScreen(),
       ),
     );
   }
