@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manga_rock/screens/forYou_screen.dart';
+import 'package:manga_rock/screens/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,14 +27,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "MangaRock",
-          ),
-        ),
-        body: ForYouScreen(),
-      ),
+      home: TabsScreen(),
     );
   }
 }
