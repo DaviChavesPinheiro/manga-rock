@@ -8,10 +8,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MangaRock',
+      title: 'Manga Rock',
       theme: ThemeData(
         primaryColor: Color.fromRGBO(35, 35, 35, 1),
-        accentColor: Colors.blue,
+        accentColor: Colors.lightBlue,
         canvasColor: Colors.black,
         textTheme: ThemeData().textTheme.copyWith(
               headline: TextStyle(

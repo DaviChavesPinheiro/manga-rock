@@ -11,16 +11,33 @@ class TabsScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text("MangaRock"),
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+              ),
+              child: Icon(Icons.search),
+            )
+          ],
           bottom: TabBar(
+            labelColor: Theme.of(context).accentColor,
+            unselectedLabelColor: Colors.grey,
+            labelStyle: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             tabs: [
-              Tab(
-                text: 'FOR YOU',
+              Container(
+                alignment: Alignment.center,
+                height: 40,
+                child: Text("FOR YOU"),
               ),
-              Tab(
-                text: 'ALL',
+              Container(
+                alignment: Alignment.center,
+                height: 40,
+                child: Text("ALL"),
               ),
-              Tab(
-                text: 'LATEST',
+              Container(
+                alignment: Alignment.center,
+                height: 40,
+                child: Text("LATEST"),
               ),
             ],
           ),
