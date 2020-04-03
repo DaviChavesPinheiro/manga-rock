@@ -1,16 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:manga_rock/screens/all_screen.dart';
-import 'package:manga_rock/screens/forYou_screen.dart';
-import 'package:manga_rock/screens/latest_screen.dart';
+import 'package:manga_rock/screens/discover_screen.dart';
+import 'package:manga_rock/screens/downloads_screen.dart';
+import 'package:manga_rock/screens/favorites_screen.dart';
+import 'package:manga_rock/screens/more_screen.dart';
+import 'package:manga_rock/screens/recent_screen.dart';
 
-class TabsScreen extends StatelessWidget {
+class TabsScreen extends StatefulWidget {
+  @override
+  _TabsScreenState createState() => _TabsScreenState();
+}
+
+class _TabsScreenState extends State<TabsScreen> {
+  int _selectedScreenIndex = 0;
+  final List<Map<String, Object>> _screens = [
+    {'title': 'Manga Rock', 'screen': DiscoverScreen()},
+    {'title': 'Favorites', 'screen': FavoriteScreen()},
+    {'title': 'Recent', 'screen': RecentScreen()},
+    {'title': 'Downloads', 'screen': DownloadScreen()},
+    {'title': 'More', 'screen': MoreScreen()},
+  ];
+
+  void _selectScreen(int index) {
+    setState(() {
+      _selectedScreenIndex = index;
+      print(_selectedScreenIndex);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("MangaRock"),
+          title: Text(_screens[_selectedScreenIndex]['title']),
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -19,37 +42,35 @@ class TabsScreen extends StatelessWidget {
               child: Icon(Icons.search),
             )
           ],
-          bottom: TabBar(
-            labelColor: Theme.of(context).accentColor,
-            unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
-            labelStyle: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-            tabs: [
-              Container(
-                alignment: Alignment.center,
-                height: 40,
-                child: Text("FOR YOU"),
-              ),
-              Container(
-                alignment: Alignment.center,
-                height: 40,
-                child: Text("ALL"),
-              ),
-              Container(
-                alignment: Alignment.center,
-                height: 40,
-                child: Text("LATEST"),
-              ),
-            ],
-          ),
+          bottom: _selectedScreenIndex == 0
+              ? TabBar(
+                  labelColor: Theme.of(context).accentColor,
+                  unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
+                  labelStyle:
+                      TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                  tabs: [
+                    Container(
+                      alignment: Alignment.center,
+                      height: 40,
+                      child: Text("FOR YOU"),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 40,
+                      child: Text("ALL"),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 40,
+                      child: Text("LATEST"),
+                    ),
+                  ],
+                )
+              : null,
         ),
-        body: TabBarView(
-          children: [
-            ForYouScreen(),
-            AllScreen(),
-            LatestScreen(),
-          ],
-        ),
+        body: _screens[_selectedScreenIndex]['screen'],
         bottomNavigationBar: BottomNavigationBar(
+          onTap: _selectScreen,
           backgroundColor: Theme.of(context).primaryColor,
           selectedItemColor: Theme.of(context).accentColor,
           unselectedItemColor: Colors.grey[600],
@@ -58,6 +79,7 @@ class TabsScreen extends StatelessWidget {
           unselectedFontSize: 10,
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
           unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+          currentIndex: _selectedScreenIndex,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
