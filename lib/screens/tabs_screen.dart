@@ -32,41 +32,45 @@ class _TabsScreenState extends State<TabsScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(_screens[_selectedScreenIndex]['title']),
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-              ),
-              child: Icon(Icons.search),
-            )
-          ],
-          bottom: _selectedScreenIndex == 0
-              ? TabBar(
-                  labelColor: Theme.of(context).accentColor,
-                  unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
-                  labelStyle:
-                      TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  tabs: [
-                    Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      child: Text("FOR YOU"),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      child: Text("ALL"),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      child: Text("LATEST"),
-                    ),
-                  ],
-                )
-              : null,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(100),
+          child: AppBar(
+            title: Text(_screens[_selectedScreenIndex]['title']),
+            actions: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                ),
+                child: Icon(Icons.search),
+              )
+            ],
+            bottom: _selectedScreenIndex == 0
+                ? TabBar(
+                    labelColor: Theme.of(context).accentColor,
+                    unselectedLabelColor:
+                        Theme.of(context).unselectedWidgetColor,
+                    labelStyle:
+                        TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                    tabs: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        child: Text("FOR YOU"),
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        child: Text("ALL"),
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        child: Text("LATEST"),
+                      ),
+                    ],
+                  )
+                : null,
+          ),
         ),
         body: _screens[_selectedScreenIndex]['screen'],
         bottomNavigationBar: BottomNavigationBar(
