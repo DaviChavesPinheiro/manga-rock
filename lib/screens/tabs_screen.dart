@@ -33,7 +33,7 @@ class _TabsScreenState extends State<TabsScreen> {
       length: 3,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100),
+          preferredSize: Size.fromHeight(_selectedScreenIndex == 0 ? 100 : 60),
           child: AppBar(
             title: Text(_screens[_selectedScreenIndex]['title']),
             actions: <Widget>[

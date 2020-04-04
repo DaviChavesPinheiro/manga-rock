@@ -9,6 +9,8 @@ class ForYouScreen extends StatelessWidget {
       children: <Widget>[
         HorizontalMangaList(),
         HorizontalMangaList(),
+        HorizontalMangaList(),
+        HorizontalMangaList(),
       ],
     );
   }

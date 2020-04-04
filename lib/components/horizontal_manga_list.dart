@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manga_rock/components/manga_tile.dart';
 
 class HorizontalMangaList extends StatelessWidget {
   @override
@@ -11,35 +12,15 @@ class HorizontalMangaList extends StatelessWidget {
           height: 10,
         ),
         Container(
-          height: 200,
+          height: 220,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              Container(
-                height: double.infinity,
-                width: 100,
-                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              ),
-              Container(
-                height: double.infinity,
-                width: 100,
-                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              ),
-              Container(
-                height: double.infinity,
-                width: 100,
-                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              ),
-              Container(
-                height: double.infinity,
-                width: 100,
-                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              ),
-              Container(
-                height: double.infinity,
-                width: 100,
-                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-              ),
+              MangaTile(),
+              MangaTile(),
+              MangaTile(),
+              MangaTile(),
+              MangaTile(),
             ],
           ),
         ),
