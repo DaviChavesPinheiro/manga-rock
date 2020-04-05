@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:manga_rock/models/manga_profile.dart';
+import 'package:manga_rock/utils/app_routes.dart';
 
 class MangaTile extends StatelessWidget {
 
-  final String title;
-  final String image;
+  final MangaProfile mangaProfile;
 
-  const MangaTile({this.title, this.image});
+  const MangaTile(this.mangaProfile);
+
+  void selectMeal(BuildContext context){
+    Navigator.of(context).pushNamed(
+      AppRoutes.MANGA_PROFILE,
+      arguments: mangaProfile
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +23,7 @@ class MangaTile extends StatelessWidget {
         color: Theme.of(context).primaryColor,
         child: InkWell(
           borderRadius: BorderRadius.circular(3),
-          onTap: () {},
+          onTap: () => selectMeal(context),
           child: Container(
             height: double.infinity,
             width: 115,
@@ -32,7 +40,7 @@ class MangaTile extends StatelessWidget {
                     topRight: Radius.circular(3),
                   ),
                   child: Image.network(
-                    image,
+                    mangaProfile.thumbnailUrl,
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -42,7 +50,7 @@ class MangaTile extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(7),
                     child: Text(
-                      title,
+                      mangaProfile.title,
                       textAlign: TextAlign.left,
                       // overflow: TextOverflow.ellipsis,
                     ),

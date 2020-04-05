@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:manga_rock/screens/manga_profile_screen.dart';
 import 'package:manga_rock/screens/tabs_screen.dart';
+import 'package:manga_rock/utils/app_routes.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +29,10 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: TabsScreen(),
+      routes: {
+        AppRoutes.HOME : (ctx) => TabsScreen(),
+        AppRoutes.MANGA_PROFILE : (ctx) => MangaProfileScreen(),
+      },
     );
   }
 }
