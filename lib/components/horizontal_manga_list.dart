@@ -41,7 +41,7 @@ class HorizontalMangaList extends StatelessWidget {
                   thumbnailUrl:
                       'https://img.elo7.com.br/product/zoom/1F2E1D9/big-poster-anime-tokyo-ghoul-tamanho-90x-0-cm-lo11-tokyo-ghoul.jpg',
                   bannerUrl:
-                      'https://img.elo7.com.br/product/zoom/1F2E1D9/big-poster-anime-tokyo-ghoul-tamanho-90x-0-cm-lo11-tokyo-ghoul.jpg',
+                      'https://images-na.ssl-images-amazon.com/images/I/81fCk8HEkKL.jpg',
                 ),
               ),
               MangaTile(
