@@ -14,10 +14,12 @@ class MangaProfileScreen extends StatelessWidget {
         child: Container(
           width: double.infinity,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Container(
                 height: 440,
                 color: Theme.of(context).primaryColor,
+                margin: EdgeInsets.only(bottom: 20),
                 child: Stack(
                   children: <Widget>[
                     Image.network(
@@ -33,7 +35,11 @@ class MangaProfileScreen extends StatelessWidget {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              width: MediaQuery.of(context).size.width / (MediaQuery.of(context).orientation == Orientation.portrait ? 3 : 5),
+                              width: MediaQuery.of(context).size.width /
+                                  (MediaQuery.of(context).orientation ==
+                                          Orientation.portrait
+                                      ? 3
+                                      : 5),
                               padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
@@ -44,11 +50,15 @@ class MangaProfileScreen extends StatelessWidget {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Text(
                               mangaProfile.title,
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                             SizedBox(
                               height: 7,
@@ -70,62 +80,95 @@ class MangaProfileScreen extends StatelessWidget {
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: <Widget>[
-                                  Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.play_arrow,
-                                        color: Theme.of(context).accentColor,
-                                        size: 28,
+                                  Expanded(
+                                    child: Material(
+                                      type: MaterialType.transparency,
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        onTap: () {},
+                                        splashColor: Colors.grey,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.play_arrow,
+                                              color:
+                                                  Theme.of(context).accentColor,
+                                              size: 28,
+                                            ),
+                                            Text(
+                                              "Resume",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                      Text(
-                                        "Resume",
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500),
-                                      )
-                                    ],
+                                    ),
                                   ),
                                   VerticalDivider(
                                     color: Colors.grey[700],
                                   ),
-                                  Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.list,
-                                        color: Theme.of(context).accentColor,
-                                        size: 28,
+                                  Expanded(
+                                    child: Material(
+                                      type: MaterialType.transparency,
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        onTap: () {},
+                                        splashColor: Colors.grey,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.list,
+                                              color:
+                                                  Theme.of(context).accentColor,
+                                              size: 28,
+                                            ),
+                                            Text(
+                                              "120 Chapters",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                      Text(
-                                        "120 Chapters",
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500),
-                                      )
-                                    ],
+                                    ),
                                   ),
                                   VerticalDivider(
                                     color: Colors.grey[700],
                                   ),
-                                  Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.favorite_border,
-                                        color: Theme.of(context).accentColor,
-                                        size: 28,
+                                  Expanded(
+                                    child: Material(
+                                      type: MaterialType.transparency,
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        onTap: () {},
+                                        splashColor: Colors.grey,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Icon(
+                                              Icons.favorite_border,
+                                              color:
+                                                  Theme.of(context).accentColor,
+                                              size: 28,
+                                            ),
+                                            Text(
+                                              "Favorite",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                      Text(
-                                        "Favorite",
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500),
-                                      )
-                                    ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -134,6 +177,33 @@ class MangaProfileScreen extends StatelessWidget {
                         ),
                       ),
                     )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(10),
+                color: Theme.of(context).primaryColor,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Summary",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "  " + mangaProfile.description,
+                      style: TextStyle(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey,
+                      ),
+                    ),
                   ],
                 ),
               )
