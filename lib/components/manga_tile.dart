@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MangaTile extends StatelessWidget {
+
+  final String title;
+  final String image;
+
+  const MangaTile({this.title, this.image});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,6 +23,7 @@ class MangaTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(3),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 ClipRRect(
@@ -25,7 +32,7 @@ class MangaTile extends StatelessWidget {
                     topRight: Radius.circular(3),
                   ),
                   child: Image.network(
-                    'https://br.web.img3.acsta.net/pictures/15/05/28/17/20/502228.jpg',
+                    image,
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -35,7 +42,8 @@ class MangaTile extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(7),
                     child: Text(
-                      'Naruto Shippuden Mangá',
+                      title,
+                      textAlign: TextAlign.left,
                       // overflow: TextOverflow.ellipsis,
                     ),
                   ),
