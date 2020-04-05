@@ -8,7 +8,7 @@ class MangaTile extends StatelessWidget {
 
   const MangaTile(this.mangaProfile);
 
-  void selectMeal(BuildContext context){
+  void selectManga(BuildContext context){
     Navigator.of(context).pushNamed(
       AppRoutes.MANGA_PROFILE,
       arguments: mangaProfile
@@ -23,7 +23,7 @@ class MangaTile extends StatelessWidget {
         color: Theme.of(context).primaryColor,
         child: InkWell(
           borderRadius: BorderRadius.circular(3),
-          onTap: () => selectMeal(context),
+          onTap: () => selectManga(context),
           child: Container(
             height: double.infinity,
             width: 115,
