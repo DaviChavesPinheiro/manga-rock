@@ -64,7 +64,7 @@ class MangaProfileScreen extends StatelessWidget {
                               height: 7,
                             ),
                             Text(
-                              "By Kouhei Horikoshi",
+                              "By " + mangaProfile.autor,
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
