@@ -8,8 +8,11 @@ class MangaViewScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: Text(mangaProfile.title),
+      body: ListView.builder(
+        itemCount: mangaProfile.capitulo1.length,
+        itemBuilder: (ctx, index){
+          return Image.network(mangaProfile.capitulo1[index]);
+        },
       ),
     );
   }
