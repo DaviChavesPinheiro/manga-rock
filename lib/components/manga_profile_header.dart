@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:manga_rock/models/manga_profile.dart';
+import 'package:manga_rock/utils/app_routes.dart';
 
 class MangaProfileHeader extends StatelessWidget {
 
   final MangaProfile mangaProfile;
 
   const MangaProfileHeader(this.mangaProfile);
+
+  void showChapterList(BuildContext context){
+    Navigator.of(context).pushNamed(
+      AppRoutes.MANGA_CHAPTERS,
+      arguments: mangaProfile
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +114,7 @@ class MangaProfileHeader extends StatelessWidget {
                             type: MaterialType.transparency,
                             color: Colors.transparent,
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {showChapterList(context);},
                               splashColor: Colors.grey,
                               child: Column(
                                 mainAxisAlignment:

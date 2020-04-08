@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manga_rock/models/manga_profile.dart';
+import 'package:manga_rock/utils/app_routes.dart';
 
 class MangaProfileChapters extends StatelessWidget {
   final MangaProfile mangaProfile;
@@ -12,6 +13,13 @@ class MangaProfileChapters extends StatelessWidget {
       chapters.add(mangaProfile.chapters[i]);
     }
     return chapters;
+  }
+
+  void showChapterList(BuildContext context){
+    Navigator.of(context).pushNamed(
+      AppRoutes.MANGA_CHAPTERS,
+      arguments: mangaProfile
+    );
   }
 
   @override
@@ -78,7 +86,7 @@ class MangaProfileChapters extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12),
             child: RaisedButton(
-              onPressed: () {},
+              onPressed: (){showChapterList(context);},
               child: Text(
                 "VIEW ALL ${mangaProfile.chapters.length} CHAPTERS",
                 style: TextStyle(color: Theme.of(context).accentColor, fontSize: 16),
