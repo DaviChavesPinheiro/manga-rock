@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manga_rock/components/manga_profile_chapters.dart';
 import 'package:manga_rock/components/manga_profile_header.dart';
 import 'package:manga_rock/components/manga_profile_summary.dart';
 import 'package:manga_rock/models/manga_profile.dart';
@@ -29,7 +30,8 @@ class MangaProfileScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               MangaProfileHeader(mangaProfile),
-              MangaProfileSummary(mangaProfile)
+              MangaProfileSummary(mangaProfile),
+              MangaProfileChapters(mangaProfile),
             ],
           ),
         ),
