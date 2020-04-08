@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.HOME : (ctx) => TabsScreen(),
         AppRoutes.MANGA_PROFILE : (ctx) => MangaProfileScreen(),
-        AppRoutes.MANGA_VIEW : (ctx) => MangaViewScreen(),
+        // AppRoutes.MANGA_VIEW : (ctx) => MangaViewScreen(),
       },
     );
   }
