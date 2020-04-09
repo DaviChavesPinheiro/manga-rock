@@ -8,7 +8,7 @@ class GM extends Model {
 
   void addFavorite(MangaProfile mangaProfile){
     favoritos.add(mangaProfile);
-
+    print('aaaaaaaaaaaa');
     notifyListeners();
   }
 
