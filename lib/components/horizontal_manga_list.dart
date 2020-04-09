@@ -19,9 +19,9 @@ class HorizontalMangaList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               MangaTile(MANGAS[0]),
+              MangaTile(MANGAS[1]),
               MangaTile(MANGAS[0]),
-              MangaTile(MANGAS[0]),
-              MangaTile(MANGAS[0]),
+              MangaTile(MANGAS[1]),
               // MangaTile(MANGAS[1]),
               // MangaTile(MANGAS[2]),
               // MangaTile(MANGAS[0]),
