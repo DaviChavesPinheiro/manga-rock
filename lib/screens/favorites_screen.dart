@@ -6,22 +6,23 @@ import '../data/GM.dart';
 class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: ScopedModelDescendant<GM>(builder: (ctx, child, model) {
-        return GridView.builder(
-          itemCount: model.favoritos.length,
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: MediaQuery.of(context).size.width / 3,
-            childAspectRatio: 1/1.8,
-            crossAxisSpacing: 2,
-            mainAxisSpacing: 2
-          ),
-          itemBuilder: (ctx, index){
-            return MangaTile(model.favoritos.elementAt(index));
-          },
-        );
-      }),
-    );
+    return ScopedModelDescendant<GM>(builder: (ctx, child, model) {
+      return model.favoritos.length == 0
+          ? Center(
+              child: Text("Sua Lista de Favoritos está vazia :("),
+            )
+          : GridView.builder(
+              itemCount: model.favoritos.length,
+              padding: const EdgeInsets.all(8),
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: MediaQuery.of(context).size.width / 3,
+                  childAspectRatio: 1 / 1.8,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2),
+              itemBuilder: (ctx, index) {
+                return MangaTile(model.favoritos.elementAt(index));
+              },
+            );
+    });
   }
 }

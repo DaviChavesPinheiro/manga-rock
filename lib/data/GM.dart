@@ -13,4 +13,9 @@ class GM extends Model {
     favoritos.add(mangaProfile);
     notifyListeners();
   }
+
+  void removeFavorite(MangaProfile mangaProfile){
+    favoritos.remove(mangaProfile);
+    notifyListeners();
+  }
 }
