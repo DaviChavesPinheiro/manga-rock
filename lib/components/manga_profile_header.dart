@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:manga_rock/data/GM.dart';
 import 'package:manga_rock/models/manga_profile.dart';
 import 'package:manga_rock/utils/app_routes.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class MangaProfileHeader extends StatelessWidget {
-
   final MangaProfile mangaProfile;
 
   const MangaProfileHeader(this.mangaProfile);
 
-  void showChapterList(BuildContext context){
-    Navigator.of(context).pushNamed(
-      AppRoutes.MANGA_CHAPTERS,
-      arguments: mangaProfile
-    );
+  void showChapterList(BuildContext context) {
+    Navigator.of(context)
+        .pushNamed(AppRoutes.MANGA_CHAPTERS, arguments: mangaProfile);
   }
 
   @override
@@ -114,7 +113,9 @@ class MangaProfileHeader extends StatelessWidget {
                             type: MaterialType.transparency,
                             color: Colors.transparent,
                             child: InkWell(
-                              onTap: () {showChapterList(context);},
+                              onTap: () {
+                                showChapterList(context);
+                              },
                               splashColor: Colors.grey,
                               child: Column(
                                 mainAxisAlignment:
@@ -143,26 +144,32 @@ class MangaProfileHeader extends StatelessWidget {
                           child: Material(
                             type: MaterialType.transparency,
                             color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {},
-                              splashColor: Colors.grey,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.favorite_border,
-                                    color: Theme.of(context).accentColor,
-                                    size: 28,
+                            child: ScopedModelDescendant<GM>(
+                              builder: (ctx, child, model) {
+                                return InkWell(
+                                  onTap: () {
+                                    model.addFavorite(mangaProfile);
+                                  },
+                                  splashColor: Colors.grey,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.favorite_border,
+                                        color: Theme.of(context).accentColor,
+                                        size: 28,
+                                      ),
+                                      Text(
+                                        "Favorite",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
                                   ),
-                                  Text(
-                                    "Favorite",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
-                                  )
-                                ],
-                              ),
+                                );
+                              },
                             ),
                           ),
                         ),

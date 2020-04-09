@@ -131,13 +131,13 @@ class _TabsScreenState extends State<TabsScreen> {
             ),
           ],
         ),
-        floatingActionButton: ScopedModelDescendant<GM>(
-          builder: (ctx, child, model) {
-            return FloatingActionButton(onPressed: () {
-              model.addFavorite(MangaProfile(title: 'Blah', description: 'blah', bannerUrl: 'blah', chapters: ['blah'], autor: 'blah', thumbnailUrl: 'blah'));
-            });
-          },
-        ),
+        // floatingActionButton: ScopedModelDescendant<GM>(
+        //   builder: (ctx, child, model) {
+        //     return FloatingActionButton(onPressed: () {
+        //       model.addFavorite(MangaProfile(title: 'Blah', description: 'blah', bannerUrl: 'blah', chapters: ['blah'], autor: 'blah', thumbnailUrl: 'blah'));
+        //     });
+        //   },
+        // ),
       ),
     );
   }

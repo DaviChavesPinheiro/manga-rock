@@ -2,14 +2,15 @@ import 'package:manga_rock/models/manga_profile.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class GM extends Model {
-  List<MangaProfile> _favoritos = [];
+  Set<MangaProfile> _favoritos = <MangaProfile>{};
 
-  List<MangaProfile> get favoritos => _favoritos;
-
-  void addFavorite(MangaProfile mangaProfile){
-    favoritos.add(mangaProfile);
-    print('aaaaaaaaaaaa');
-    notifyListeners();
+  Set<MangaProfile> get favoritos {
+    print("getFavoritos");
+    return _favoritos;
   }
 
+  void addFavorite(MangaProfile mangaProfile) {
+    favoritos.add(mangaProfile);
+    notifyListeners();
+  }
 }
