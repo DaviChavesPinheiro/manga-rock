@@ -3,9 +3,9 @@ import 'package:manga_rock/components/manga_tile.dart';
 import 'package:manga_rock/models/manga_profile.dart';
 
 class HorizontalMangaList extends StatelessWidget {
-  final List<MangaProfile> mangas;
+  final List<MangaProfile> mangasProfiles;
 
-  const HorizontalMangaList(this.mangas);
+  const HorizontalMangaList(this.mangasProfiles);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class HorizontalMangaList extends StatelessWidget {
           height: 220,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: mangas.map((m){
+            children: mangasProfiles.map((m){
               return MangaTile(m);
             }).toList(),
           ),

@@ -26,7 +26,7 @@ class MangaTile extends StatelessWidget {
           onTap: () => selectManga(context),
           child: Container(
             height: double.infinity,
-            width: 115,
+            width: 150 * 0.65,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(3),
             ),
