@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:manga_rock/components/manga_tile.dart';
 import 'package:manga_rock/models/manga_profile.dart';
-import 'package:manga_rock/data/DATA.dart';
 
 class HorizontalMangaList extends StatelessWidget {
+  final List<MangaProfile> mangas;
+
+  const HorizontalMangaList(this.mangas);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,16 +20,9 @@ class HorizontalMangaList extends StatelessWidget {
           height: 220,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              MangaTile(MANGAS[0]),
-              MangaTile(MANGAS[1]),
-              MangaTile(MANGAS[0]),
-              MangaTile(MANGAS[1]),
-              // MangaTile(MANGAS[1]),
-              // MangaTile(MANGAS[2]),
-              // MangaTile(MANGAS[0]),
-              // MangaTile(MANGAS[0]),
-            ],
+            children: mangas.map((m){
+              return MangaTile(m);
+            }).toList(),
           ),
         ),
         SizedBox(
