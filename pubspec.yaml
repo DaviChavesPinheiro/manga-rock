@@ -17,6 +17,9 @@ environment:
   sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
+
+  cloud_firestore:
+
   flutter:
     sdk: flutter
 
@@ -28,6 +31,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   scoped_model: ^1.0.1
+  shared_preferences: ^0.4.3
 
 
 # For information on the generic Dart part of this file, see the

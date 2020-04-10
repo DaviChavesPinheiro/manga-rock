@@ -1,5 +1,13 @@
 import 'package:manga_rock/models/manga_profile.dart';
 
+
+MangaProfile titleToMangaProfile(String title){
+  return MANGAS.singleWhere((manga){
+    return manga.title == title;
+  });
+}
+
+
 const List<MangaProfile> MANGAS = const [
   MangaProfile(
     title: "Tokyo Ghoul",

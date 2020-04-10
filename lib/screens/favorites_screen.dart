@@ -20,7 +20,7 @@ class FavoriteScreen extends StatelessWidget {
                   crossAxisSpacing: 2,
                   mainAxisSpacing: 2),
               itemBuilder: (ctx, index) {
-                return MangaTile(model.favoritos.elementAt(index));
+                return MangaTile(model.favoritesMangaProfiles.elementAt(index));
               },
             );
     });

@@ -10,15 +10,26 @@ void main() => runApp(MyApp(
       gm: GM(),
     ));
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   final GM gm;
 
   const MyApp({Key key, @required this.gm}) : super(key: key);
 
   @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    widget.gm.loadFavorites();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ScopedModel<GM>(
-      model: gm,
+      model: widget.gm,
       child: MaterialApp(
         title: 'Manga Rock',
         theme: ThemeData(

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "537634126675",
+    "firebase_url": "https://mangarock-db.firebaseio.com",
+    "project_id": "mangarock-db",
+    "storage_bucket": "mangarock-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537634126675:android:3014a847b44cfb20ed3fa6",
+        "android_client_info": {
+          "package_name": "com.example.manga_rock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "537634126675-suklkq99c64i7hblbplqjj0m8rje4enb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY6V5Js_bqu39-WZa6jiYR4ePiX0HU3FI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "537634126675-suklkq99c64i7hblbplqjj0m8rje4enb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
