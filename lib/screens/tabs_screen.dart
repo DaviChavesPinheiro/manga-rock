@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:manga_rock/data/GM.dart';
-import 'package:manga_rock/models/manga_profile.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'package:manga_rock/screens/discover_screen.dart';
 import 'package:manga_rock/screens/downloads_screen.dart';
 import 'package:manga_rock/screens/favorites_screen.dart';

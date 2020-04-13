@@ -62,7 +62,7 @@ class ForYouScreen extends StatelessWidget {
                   ),
                 ],
               )
-            : Text("Mangás Indisponíveis :(");
+            : CircularProgressIndicator();
       },
     );
   }
