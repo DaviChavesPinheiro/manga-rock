@@ -11,11 +11,11 @@ class MangaProfile {
   const MangaProfile({this.bannerUrl, this.thumbnailUrl, this.title, this.description, this.autor, this.chapters});
 
   MangaProfile.fromDocumentSnapshot(DocumentSnapshot document):
-    this.bannerUrl = document['bannerUrl'],
-    this.thumbnailUrl = document['thumbnailUrl'],
+    this.bannerUrl = document['thumbnail'],
+    this.thumbnailUrl = document['thumbnail'],
     this.title = document['title'],
     this.description = document['description'],
-    this.autor = document['autor'],
+    this.autor = document['authors'],
     this.chapters = List<String>.from(document['chapters']) ?? [];
   
 }

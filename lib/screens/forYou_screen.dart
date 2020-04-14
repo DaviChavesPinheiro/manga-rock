@@ -15,25 +15,25 @@ class ForYouScreen extends StatelessWidget {
   //   );
   // }
 
-  void fireTest(){
-    Firestore _fireStore = Firestore.instance;
+  // void fireTest(){
+  //   Firestore _fireStore = Firestore.instance;
   
-    // _fireStore.collection("mangas").getDocuments().then((onValue) => {
-    //   print(onValue.documents.where((a){
-    //     // print(a.data);
-    //     return a.data['chapters'].length > 2;
-    //   }).toList()[0].data)
-    // });
-    _fireStore.collection("mangas").document("7oPIM89uUf3dyYW2mOAl").collection("capitulos").getDocuments().then((onValue)=>{
-      print(onValue.documents[0].data)
-    });
+  //   // _fireStore.collection("mangas").getDocuments().then((onValue) => {
+  //   //   print(onValue.documents.where((a){
+  //   //     // print(a.data);
+  //   //     return a.data['chapters'].length > 2;
+  //   //   }).toList()[0].data)
+  //   // });
+  //   _fireStore.collection("mangas").document("7oPIM89uUf3dyYW2mOAl").collection("capitulos").getDocuments().then((onValue)=>{
+  //     print(onValue.documents[0].data)
+  //   });
     
   
-  }
+  // }
 
   @override
   Widget build(BuildContext context) {
-    fireTest();
+    // fireTest();
     return StreamBuilder(
       stream: Firestore.instance.collection("mangas").snapshots(),
       builder: (ctx, snapshot) {
