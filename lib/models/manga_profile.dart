@@ -7,7 +7,7 @@ class MangaProfile {
   final String bannerUrl;
   final String thumbnailUrl;
   String description;
-  List<Map<String, Object>> chapters;
+  List<Map> chapters;
 
   MangaProfile({this.id, this.bannerUrl, this.thumbnailUrl, this.title, this.description = "", this.autor, this.chapters});
 
@@ -18,6 +18,6 @@ class MangaProfile {
     this.title = document['title'],
     this.autor = document['authors'],
     this.description = document['description'] ?? "",
-    this.chapters = List<Map<String, Object>>.from(document['chapters'] ?? []);
+    this.chapters = List<Map>.from(document['chapters'] ?? []);
   
 }

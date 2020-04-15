@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:manga_rock/data/GM.dart';
 import 'package:manga_rock/screens/manga_chapters_screen.dart';
 import 'package:manga_rock/screens/manga_profile_screen.dart';
+import 'package:manga_rock/screens/manga_view_screen.dart';
 import 'package:manga_rock/screens/tabs_screen.dart';
 import 'package:manga_rock/utils/app_routes.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -55,7 +56,7 @@ class _MyAppState extends State<MyApp> {
           AppRoutes.HOME: (ctx) => TabsScreen(),
           AppRoutes.MANGA_PROFILE: (ctx) => MangaProfileScreen(),
           AppRoutes.MANGA_CHAPTERS: (ctx) => MangaChaptersScreen(),
-          // AppRoutes.MANGA_VIEW : (ctx) => MangaViewScreen(),
+          AppRoutes.MANGA_VIEW : (ctx) => MangaViewScreen(),
         },
       ),
     );
