@@ -6,6 +6,19 @@ import '../data/GM.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FavoriteScreen extends StatelessWidget {
+  List<Object> getSafaFavoritesDocuments(Set<String> favoritos, AsyncSnapshot snapshot) {
+    List<Object> favoritesDocuments = [];
+    favoritos.forEach((mangaTitle) {
+      Object doc = snapshot.data.documents.singleWhere((document) {
+        return document['title'] == mangaTitle;
+      });
+      if(doc != null){
+        favoritesDocuments.add(doc);
+      }
+    });
+    return favoritesDocuments;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<GM>(builder: (ctx, child, model) {
@@ -16,27 +29,29 @@ class FavoriteScreen extends StatelessWidget {
           : StreamBuilder(
               stream: Firestore.instance.collection("mangas").snapshots(),
               builder: (context, snapshot) {
-                return snapshot.hasData ? GridView.builder(
-                  itemCount: model.favoritos.length,
-                  padding: const EdgeInsets.all(8),
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: MediaQuery.of(context).size.width / (MediaQuery.of(context).orientation == Orientation.portrait ? 3 : 6),
-                      childAspectRatio: 1 / 1.8,
-                      crossAxisSpacing: 2,
-                      mainAxisSpacing: 2),
-                  itemBuilder: (ctx, index) {
-                    return MangaTile(
-                      MangaProfile.fromDocumentSnapshot(
-                        snapshot.data.documents.singleWhere(
-                          (document) {
-                            return document['title'] ==
-                                model.favoritos.elementAt(index);
-                          },
-                        ),
-                      ),
-                    );
-                  },
-                ) : Text("Carregando Favoritos...");
+                final safeFavoritesDocuments = snapshot.hasData ? getSafaFavoritesDocuments(model.favoritos, snapshot) : [];
+
+                return snapshot.hasData
+                    ? GridView.builder(
+                        itemCount: safeFavoritesDocuments.length,
+                        padding: const EdgeInsets.all(8),
+                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent:
+                                MediaQuery.of(context).size.width /
+                                    (MediaQuery.of(context).orientation ==
+                                            Orientation.portrait
+                                        ? 3
+                                        : 6),
+                            childAspectRatio: 1 / 1.8,
+                            crossAxisSpacing: 2,
+                            mainAxisSpacing: 2),
+                        itemBuilder: (ctx, index) {
+                          return MangaTile(
+                            MangaProfile.fromDocumentSnapshot(safeFavoritesDocuments.elementAt(index)),
+                          );
+                        },
+                      )
+                    : Text("Carregando Favoritos...");
               });
     });
   }

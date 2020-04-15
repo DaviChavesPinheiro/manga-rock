@@ -23,17 +23,18 @@ class GM extends Model {
     print(prefs.getStringList('favorites'));
   }
 
-  void addFavorite(String title) async{
+  void addFavorite(String id) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    favoritos.add(title);
+    favoritos.add(id);
     prefs.setStringList('favorites', favoritos.toList());
     notifyListeners();
     print(prefs.getStringList('favorites'));
   }
 
-  void removeFavorite(String title) async{
+  void removeFavorite(String id) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    favoritos.remove(title);
+    favoritos.remove(id);
+    // favoritos.removeAll(Set.from(prefs.getStringList('favorites'))); Remove All
     prefs.setStringList('favorites', favoritos.toList());
     notifyListeners();
     print(prefs.getStringList('favorites'));
