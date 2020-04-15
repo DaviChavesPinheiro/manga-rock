@@ -7,8 +7,8 @@ class MangaProfileChapters extends StatelessWidget {
 
   const MangaProfileChapters(this.mangaProfile);
 
-  List<String> get fiveChapters {
-    List<String> chapters = [];
+  List<Map<String, Object>> get fiveChapters {
+    List<Map<String, Object>> chapters = [];
     for (var i = 0; i < 5 && i < mangaProfile.chapters.length; i++) {
       chapters.add(mangaProfile.chapters[i]);
     }
@@ -75,7 +75,7 @@ class MangaProfileChapters extends StatelessWidget {
                       top: 12
                     ),
                     child: Text(
-                      chapter,
+                      chapter['title'],
                       textAlign: TextAlign.left,
                     ),
                   ),

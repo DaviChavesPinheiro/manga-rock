@@ -23,7 +23,7 @@ class MangaChaptersScreen extends StatelessWidget {
                 horizontal: 18,
                 vertical: 15
               ),
-              child: Text(mangaProfile.chapters[index]),
+              child: Text(mangaProfile.chapters[index]['title']),
             ),
           );
         },

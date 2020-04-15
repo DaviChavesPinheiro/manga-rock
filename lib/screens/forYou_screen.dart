@@ -45,6 +45,7 @@ class ForYouScreen extends StatelessWidget {
                     List<MangaProfile>.from(
                       snapshot.data.documents.map(
                         (document) {
+                          print(document.documentID);
                           return MangaProfile.fromDocumentSnapshot(document);
                         },
                       ),

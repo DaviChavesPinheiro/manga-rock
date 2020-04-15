@@ -1,21 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MangaProfile {
+  final String id;
+  final String title;
+  final String autor;
   final String bannerUrl;
   final String thumbnailUrl;
-  final String title;
-  final String description;
-  final String autor;
-  final List<String> chapters;
+  String description;
+  List<Map<String, Object>> chapters;
 
-  const MangaProfile({this.bannerUrl, this.thumbnailUrl, this.title, this.description, this.autor, this.chapters});
+  MangaProfile({this.id, this.bannerUrl, this.thumbnailUrl, this.title, this.description = "", this.autor, this.chapters});
 
   MangaProfile.fromDocumentSnapshot(DocumentSnapshot document):
-    this.bannerUrl = document['thumbnail'],
+    this.id = document.documentID,
+    this.bannerUrl = document['banner'],
     this.thumbnailUrl = document['thumbnail'],
     this.title = document['title'],
-    this.description = document['description'],
     this.autor = document['authors'],
-    this.chapters = List<String>.from(document['chapters']) ?? [];
+    this.description = document['description'] ?? "",
+    this.chapters = List<Map<String, Object>>.from(document['chapters'] ?? []);
   
 }

@@ -10,12 +10,12 @@ class GM extends Model {
     return _favoritos;
   }
 
-  Set<MangaProfile> get favoritesMangaProfiles{
-    print("getFavoritos");
-    return Set.from(_favoritos.map((title){
-      return titleToMangaProfile(title);
-    }));
-  }
+  // Set<MangaProfile> get favoritesMangaProfiles{
+  //   print("getFavoritos");
+  //   return Set.from(_favoritos.map((title){
+  //     return titleToMangaProfile(title);
+  //   }));
+  // }
 
   void loadFavorites() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
