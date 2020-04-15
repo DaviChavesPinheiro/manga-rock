@@ -8,9 +8,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class FavoriteScreen extends StatelessWidget {
   List<Object> getSafaFavoritesDocuments(Set<String> favoritos, AsyncSnapshot snapshot) {
     List<Object> favoritesDocuments = [];
-    favoritos.forEach((mangaTitle) {
-      Object doc = snapshot.data.documents.singleWhere((document) {
-        return document['title'] == mangaTitle;
+    favoritos.forEach((mangaId) {
+      print(mangaId);
+      Object doc = snapshot.data.documents.firstWhere((document) {
+        return document.documentID == mangaId;
       });
       if(doc != null){
         favoritesDocuments.add(doc);

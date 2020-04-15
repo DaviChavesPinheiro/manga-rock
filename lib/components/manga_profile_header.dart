@@ -148,10 +148,10 @@ class MangaProfileHeader extends StatelessWidget {
                               builder: (ctx, child, model) {
                                 return InkWell(
                                   onTap: () {
-                                    if(model.favoritos.contains(mangaProfile.title)){
-                                      model.removeFavorite(mangaProfile.title);
+                                    if(model.favoritos.contains(mangaProfile.id)){
+                                      model.removeFavorite(mangaProfile.id);
                                     } else {
-                                      model.addFavorite(mangaProfile.title);
+                                      model.addFavorite(mangaProfile.id);
                                     }
                                   },
                                   splashColor: Colors.grey,
@@ -160,12 +160,12 @@ class MangaProfileHeader extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       Icon(
-                                        model.favoritos.contains(mangaProfile.title) ? Icons.favorite : Icons.favorite_border,
+                                        model.favoritos.contains(mangaProfile.id) ? Icons.favorite : Icons.favorite_border,
                                         color: Theme.of(context).accentColor,
                                         size: 28,
                                       ),
                                       Text(
-                                        model.favoritos.contains(mangaProfile.title) ? "Favorited" : "Favorite",
+                                        model.favoritos.contains(mangaProfile.id) ? "Favorited" : "Favorite",
                                         style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w500),

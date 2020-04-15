@@ -34,7 +34,7 @@ class GM extends Model {
   void removeFavorite(String id) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     favoritos.remove(id);
-    // favoritos.removeAll(Set.from(prefs.getStringList('favorites'))); Remove All
+    // favoritos.removeAll(Set.from(prefs.getStringList('favorites'))); //Remove All
     prefs.setStringList('favorites', favoritos.toList());
     notifyListeners();
     print(prefs.getStringList('favorites'));
