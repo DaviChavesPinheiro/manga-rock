@@ -10,9 +10,9 @@ class MangaViewScreen extends StatelessWidget {
     final int chapterIndex = arguments['chapterIndex'];
     print(mangaProfile.chapters[chapterIndex]['pages']);
     return Scaffold(
-      appBar: AppBar(
+      appBar: MediaQuery.of(context).orientation == Orientation.portrait ? AppBar(
         title: Text(mangaProfile.title),
-      ),
+      ) : null,
       body: ListView.builder(
         // physics: NeverScrollableScrollPhysics(),
         // shrinkWrap: true,

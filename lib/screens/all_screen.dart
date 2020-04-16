@@ -11,7 +11,7 @@ class AllScreen extends StatelessWidget {
         builder: (context, snapshot) {
           return snapshot.hasData
               ? GridView.builder(
-                  itemCount: snapshot.data.documents.length, //TIRAR ISSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+                  itemCount: snapshot.data.documents.length, 
                   padding: const EdgeInsets.all(8),
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: MediaQuery.of(context).size.width /
