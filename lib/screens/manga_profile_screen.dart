@@ -51,7 +51,7 @@ class MangaProfileScreen extends StatelessWidget {
                           // )
                         ],
                       )
-                    : CircularProgressIndicator();
+                    : Center(child: CircularProgressIndicator());
               }),
         ),
       ),
