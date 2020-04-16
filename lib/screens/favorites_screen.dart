@@ -6,16 +6,19 @@ import '../data/GM.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  List<Object> getSafaFavoritesDocuments(Set<String> favoritos, AsyncSnapshot snapshot) {
+  List<Object> getSafaFavoritesDocuments(
+      Set<String> favoritos, AsyncSnapshot snapshot) {
     List<Object> favoritesDocuments = [];
     favoritos.forEach((mangaId) {
       print(mangaId);
-      Object doc = snapshot.data.documents.firstWhere((document) {
-        return document.documentID == mangaId;
-      });
-      if(doc != null){
-        favoritesDocuments.add(doc);
-      }
+      try {
+        var doc = snapshot.data.documents.firstWhere((document) {
+          return document.documentID == mangaId;
+        });
+        if (doc != null) {
+          favoritesDocuments.add(doc);
+        }
+      } catch (e) {}
     });
     return favoritesDocuments;
   }
@@ -23,6 +26,7 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<GM>(builder: (ctx, child, model) {
+      print(model.favoritos);
       return model.favoritos.length == 0
           ? Center(
               child: Text("Sua Lista de Favoritos está vazia :("),
@@ -30,7 +34,9 @@ class FavoriteScreen extends StatelessWidget {
           : StreamBuilder(
               stream: Firestore.instance.collection("mangas").snapshots(),
               builder: (context, snapshot) {
-                final safeFavoritesDocuments = snapshot.hasData ? getSafaFavoritesDocuments(model.favoritos, snapshot) : [];
+                final safeFavoritesDocuments = snapshot.hasData
+                    ? getSafaFavoritesDocuments(model.favoritos, snapshot)
+                    : [];
 
                 return snapshot.hasData
                     ? GridView.builder(
@@ -48,7 +54,8 @@ class FavoriteScreen extends StatelessWidget {
                             mainAxisSpacing: 2),
                         itemBuilder: (ctx, index) {
                           return MangaTile(
-                            MangaProfile.fromDocumentSnapshot(safeFavoritesDocuments.elementAt(index)),
+                            MangaProfile.fromDocumentSnapshot(
+                                safeFavoritesDocuments.elementAt(index)),
                           );
                         },
                       )
