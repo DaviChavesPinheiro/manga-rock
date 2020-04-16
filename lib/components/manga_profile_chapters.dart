@@ -22,6 +22,11 @@ class MangaProfileChapters extends StatelessWidget {
     );
   }
 
+  void showMangaView(BuildContext context, MangaProfile mangaProfile, int chapterIndex){
+    Navigator.of(context)
+        .pushNamed(AppRoutes.MANGA_VIEW, arguments: {'mangaProfile':mangaProfile, 'chapterIndex': chapterIndex});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -66,7 +71,7 @@ class MangaProfileChapters extends StatelessWidget {
                 type: MaterialType.transparency,
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: (){showMangaView(context, mangaProfile, fiveChapters.indexOf(chapter));},
                   child: Container(
                     padding: EdgeInsets.only(
                       bottom: 12,
