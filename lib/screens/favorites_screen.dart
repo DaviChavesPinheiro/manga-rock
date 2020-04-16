@@ -59,7 +59,7 @@ class FavoriteScreen extends StatelessWidget {
                           );
                         },
                       )
-                    : Text("Carregando Favoritos...");
+                    : Center(child: CircularProgressIndicator());
               });
     });
   }

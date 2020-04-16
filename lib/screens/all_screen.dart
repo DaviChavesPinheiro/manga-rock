@@ -28,7 +28,7 @@ class AllScreen extends StatelessWidget {
                     );
                   },
                 )
-              : Text("Carregando Favoritos...");
+              : Center(child: CircularProgressIndicator());
         });
   }
 }
