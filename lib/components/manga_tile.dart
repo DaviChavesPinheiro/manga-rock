@@ -3,22 +3,19 @@ import 'package:manga_rock/models/manga_profile.dart';
 import 'package:manga_rock/utils/app_routes.dart';
 
 class MangaTile extends StatelessWidget {
-
   final MangaProfile mangaProfile;
+  final bool showAutor;
+  const MangaTile(this.mangaProfile, {this.showAutor = true});
 
-  const MangaTile(this.mangaProfile);
-
-  void selectManga(BuildContext context){
-    Navigator.of(context).pushNamed(
-      AppRoutes.MANGA_PROFILE,
-      arguments: mangaProfile
-    );
+  void selectManga(BuildContext context) {
+    Navigator.of(context)
+        .pushNamed(AppRoutes.MANGA_PROFILE, arguments: mangaProfile);
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8),
+      padding: const EdgeInsets.only(right: 4, left: 4),
       child: Material(
         color: Theme.of(context).primaryColor,
         child: InkWell(
@@ -48,11 +45,30 @@ class MangaTile extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(7),
-                    child: Text(
-                      mangaProfile.title,
-                      textAlign: TextAlign.left,
-                      // overflow: TextOverflow.ellipsis,
+                    padding: EdgeInsets.fromLTRB(7, 7, 7, 4),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          mangaProfile.title,
+                          textAlign: TextAlign.left,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        showAutor ? Text(
+                          mangaProfile.autor,
+                          textAlign: TextAlign.left,
+                          // maxLines: 1,
+                          softWrap: false,
+                          overflow: TextOverflow.fade,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                          ),
+                        ) : Container(),
+                      ],
                     ),
                   ),
                 ),

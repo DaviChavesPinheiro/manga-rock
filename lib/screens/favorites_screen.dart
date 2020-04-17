@@ -55,7 +55,7 @@ class FavoriteScreen extends StatelessWidget {
                         itemBuilder: (ctx, index) {
                           return MangaTile(
                             MangaProfile.fromDocumentSnapshot(
-                                safeFavoritesDocuments.elementAt(index)),
+                                safeFavoritesDocuments.elementAt(index)), showAutor: false,
                           );
                         },
                       )

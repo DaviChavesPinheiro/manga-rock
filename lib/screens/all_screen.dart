@@ -24,7 +24,7 @@ class AllScreen extends StatelessWidget {
                       mainAxisSpacing: 2),
                   itemBuilder: (ctx, index) {
                     return MangaTile(
-                      MangaProfile.fromDocumentSnapshot(snapshot.data.documents[index])
+                      MangaProfile.fromDocumentSnapshot(snapshot.data.documents[index]), showAutor: false,
                     );
                   },
                 )
